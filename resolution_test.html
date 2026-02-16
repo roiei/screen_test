@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolution Test - Monitor Quality Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Monitor Quality Test</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="color_test.html">Color Test</a></li>
+                <li><a href="resolution_test.html">Resolution Test</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="resolution-test">
+            <h2>Resolution Test</h2>
+            <p>Your current screen resolution is: <span id="resolution">Detecting...</span></p>
+            <p>To test your monitor's full resolution, ensure your browser is in full-screen mode (usually F11).</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const resolutionSpan = document.getElementById('resolution');
+            resolutionSpan.textContent = `${window.screen.width}x${window.screen.height}`;
+        });
+    </script>
+</body>
+</html>

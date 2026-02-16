@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Test - Monitor Quality Test</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body.color-test-page {
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars during test */
+        }
+        .color-test-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+        }
+        .color-test-container p {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none; /* Hidden by default, shown on hover/click if needed */
+        }
+    </style>
+</head>
+<body class="color-test-page">
+    <div id="color-test-container" class="color-test-container">
+        <p>Click anywhere to change color</p>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const colors = ['red', 'green', 'blue', 'white', 'black'];
+            let currentColorIndex = 0;
+            const colorTestContainer = document.getElementById('color-test-container');
+
+            function changeColor() {
+                colorTestContainer.style.backgroundColor = colors[currentColorIndex];
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+            }
+
+            colorTestContainer.addEventListener('click', changeColor);
+
+            // Initial color
+            changeColor();
+        });
+    </script>
+</body>
+</html>
